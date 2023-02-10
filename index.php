@@ -17,6 +17,7 @@
         body{
             width: 1200px;
             margin: 100px;
+            font-family: Arial;
         }
         span{
             color: red;
