@@ -7,26 +7,26 @@
     <title>welcome</title>
     <style>
         body{
-            width: 1200px;
-            margin: 0 auto;
-            font-family: Arial;
-            display: flex;
-            justify-content: center;
-            color: green;
-            padding: 100px 50px;
-            font-size: 20px;
+					width: 1200px;
+					margin: 0 auto;
+					font-family: Arial;
+					display: flex;
+					justify-content: center;
+					color: green;
+					padding: 100px 50px;
+					font-size: 20px;
         }
         .ctn-center{
-            display: none;
+          display: none;
         }
     </style>
 </head>
 <body>
     <?php
         if(empty($_POST['fname']) && empty($_POST['lname'])){
-            header("location: index.php");
+          header("location: index.php");
         }else{
-            echo "<h2>Welcome ".$_POST['fname']." ".$_POST['lname']."!!!</h2>";
+          echo "<h2>Welcome ".$_POST['fname']." ".$_POST['lname']."!!!</h2>";
         }
     ?>
 </body>
