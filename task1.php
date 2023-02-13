@@ -69,7 +69,7 @@
     ?>
 
     <div class="ctn-center">
-        <form action="" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <h1>User's Login-Page</h1>
             <label for="fname">Enter First Name : </label>
             <input type="text" name="fname" placeholder="First Name" value="<?php echo $name1 ?>"><span>* <?php echo $nameErr1 ?></span></br></br>
