@@ -7,7 +7,7 @@ session_start();
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sub-Form</title>
+<title>Phone-Form</title>
 <style>
   body{
     margin: 100px auto;
@@ -45,6 +45,17 @@ session_start();
       document.getElementById("submitBtn").disabled = false;
     }
   }
+  function checkPhone(){
+    var user_phone = document.getElementById('phone').value;
+    var check_phone = /^(\+91)[0-9]{10}$/;
+    if(!(user_phone.match(check_phone))){
+      document.getElementById('invalid_phone').innerHTML = '<span style="color:red;">Enter only 10 digits number and country code<span>';
+      document.getElementById("submitBtn").disabled = true;
+    }else{
+      document.getElementById('invalid_phone').innerHTML = '';
+      document.getElementById("submitBtn").disabled = false;
+    }
+  }
 </script>
 </head>
 <body>
@@ -54,10 +65,11 @@ session_start();
     header("location: ../login.php");
   }
   ?>
-  <form action="subject.php" method="post" enctype="multipart/form-data">
+  <form action="phone.php" method="post" enctype="multipart/form-data">
     <h1>Student log-in page</h1>
     Enter your first-name : <input type="text" name="fname" id="fname" onblur="checkFname()" required><span id="invalid_fname"></span><br><br>
     Enter your last-name : <input type="text" name="lname" id="lname" onblur="checkLname()" required><span id="invalid_lname"></span><br><br>
+    Enter your phone-number : <input type="text" name="phone" id="phone" onblur="checkPhone()" placeholder="Enter like : +919876543210" required><span id="invalid_phone"></span><br><br>
     Upload your img : <input type="file" name="user_img" id="user_img" required><br><br>
     Enter your subject-name and subject-marks in below text-area : <br>
     <textarea name="sub_details" id="sub_details" cols="30" rows="5" placeholder="Enter like Sub_Name|Sub_Marks.." required></textarea><br><br>

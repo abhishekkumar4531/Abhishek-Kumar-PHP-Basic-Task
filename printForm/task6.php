@@ -1,10 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phone-Form</title>
+<title>Print-Form</title>
 <style>
   body{
     margin: 100px auto;
@@ -53,18 +56,36 @@
       document.getElementById("submitBtn").disabled = false;
     }
   }
+  function checkEmail(){
+    var user_email = document.getElementById('user_email').value;
+    var check_email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(!(user_email.match(check_email))){
+      document.getElementById('email_status').innerHTML = '<span style="color:red;">Enter a valid-email syntax<span>';
+      document.getElementById("submitBtn").disabled = true;
+    }else{
+      document.getElementById('email_status').innerHTML = '<span style="color:green;">This is valid-email syntax<span>';
+      document.getElementById("submitBtn").disabled = false;
+    }
+  }
 </script>
 </head>
 <body>
-<form action="phone.php" method="post" enctype="multipart/form-data">
-  <h1>Student log-in page</h1>
-  Enter your first-name : <input type="text" name="fname" id="fname" onblur="checkFname()" required><span id="invalid_fname"></span><br><br>
-  Enter your last-name : <input type="text" name="lname" id="lname" onblur="checkLname()" required><span id="invalid_lname"></span><br><br>
-  Enter your phone-number : <input type="text" name="phone" id="phone" onblur="checkPhone()" placeholder="Enter like : +919876543210" required><span id="invalid_phone"></span><br><br>
-  Upload your img : <input type="file" name="user_img" id="user_img" required><br><br>
-  Enter your subject-name and subject-marks in below text-area : <br>
-  <textarea name="sub_details" id="sub_details" cols="30" rows="5" placeholder="Enter like Sub_Name|Sub_Marks.." required></textarea><br><br>
-  <button id="submitBtn">Submit</button>
-</form>
+  <?php
+  $user_profile = $_SESSION['login_user'];
+  if($user_profile==false){
+    header("location: ../login.php");
+  }
+  ?>
+  <form action="display.php" method="post" enctype="multipart/form-data">
+    <h1>Student log-in page</h1>
+    Enter your first-name : <input type="text" name="fname" id="fname" onblur="checkFname()" required><span id="invalid_fname"></span><br><br>
+    Enter your last-name : <input type="text" name="lname" id="lname" onblur="checkLname()" required><span id="invalid_lname"></span><br><br>
+    Enter your phone-number : <input type="text" name="phone" id="phone" onblur="checkPhone()" placeholder="Enter like : +919876543210" required><span id="invalid_phone"></span><br><br>
+    Enter your email-address : <input type="text" name="user_email" id="user_email" onblur="checkEmail()" placeholder="Enter a valid email" required><span id="email_status"></span><br><br>
+    Upload your img : <input type="file" name="user_img" id="user_img" required><br><br>
+    Enter your subject-name and subject-marks in below text-area : <br>
+    <textarea name="sub_details" id="sub_details" cols="30" rows="5" placeholder="Enter like Sub_Name|Sub_Marks.." required></textarea><br><br>
+    <button id="submitBtn">Submit</button>
+  </form>
 </body>
 </html>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,8 +32,16 @@
 </head>
 <body>
   <?php
-    $name1=$name2=$fullName="";
-    $nameErr1=$nameErr2=$fullNameErr="";
+    $user_profile = $_SESSION['login_user'];
+    if($user_profile==false){
+      header("location: ../login.php");
+    }
+    $name1="";
+    $name2="";
+    $fullName="";
+    $nameErr1="";
+    $nameErr2="";
+    $fullNameErr="";
     if($_SERVER['REQUEST_METHOD']=="POST"){
       if(empty($_POST['fname']) && empty($_POST['lname'])){
         $nameErr1 = "Enter First Name";

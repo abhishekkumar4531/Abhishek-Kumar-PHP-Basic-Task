@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +48,12 @@
   </script>
 </head>
 <body>
+  <?php
+  $user_profile = $_SESSION['login_user'];
+  if($user_profile==false){
+    header("location: ../login.php");
+  }
+  ?>
   <form action="user.php" method="post" enctype="multipart/form-data">
     <h1>User log-in page</h1>
     Enter your first-name : <input type="text" name="fname" id="fname" onblur="checkFname()" required><span id="invalid_fname"></span><br><br>
