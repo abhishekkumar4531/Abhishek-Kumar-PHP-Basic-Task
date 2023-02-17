@@ -72,8 +72,9 @@ session_start();
         }
         if($status==true){
             $fullName = $name1." ".$name2;
-            include "welcome.php";
-            //header("location: welcome.php");
+            //include "welcome.php";
+            $_SESSION['full_name'] = $fullName;
+            header("location: welcome.php");
         }
       }
     }

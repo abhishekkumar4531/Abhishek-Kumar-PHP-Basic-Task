@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +26,7 @@
 </head>
 <body>
     <?php
-        if(empty($_POST['fname']) && empty($_POST['lname'])){
-          header("location: index.php");
-        }else{
-          echo "<h2>Welcome ".$_POST['fname']." ".$_POST['lname']."!!!</h2>";
-        }
+      echo "<h2>Welcome ". $_SESSION['full_name'] ."!!!</h2>";
     ?>
 </body>
 </html>
