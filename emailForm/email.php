@@ -74,12 +74,12 @@
         $img_tmp = $_FILES['user_img']['tmp_name'];
         $img_type = $_FILES['user_img']['type'];
 
-        move_uploaded_file($img_tmp, "uploaded/".$img_name);
+        move_uploaded_file($img_tmp, "../uploaded/".$img_name);
         echo "<h1>";
         echo $_POST['fname'];
         echo " you logged-in welcome!!!</h1>";
         echo "<div>";
-        echo '<img src="uploaded/'.$img_name.'">';
+        echo '<img src="../uploaded/'.$img_name.'">';
         echo "<h3>". $_POST['fname'] ." ". $_POST['lname'] ."</h3>";
         echo "<h3>Phone's number : ". $_POST['phone'] ."</h3>";
         echo "<h3>Verified-email : ". $user_email ."</h3>";

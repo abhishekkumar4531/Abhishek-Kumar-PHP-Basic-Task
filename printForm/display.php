@@ -90,7 +90,7 @@ session_start();
         $img_tmp = $_FILES['user_img']['tmp_name'];
         $img_type = $_FILES['user_img']['type'];
 
-        move_uploaded_file($img_tmp, "uploaded/".$img_name);
+        move_uploaded_file($img_tmp, "../uploaded/".$img_name);
         echo "<h1>";
         echo $_POST['fname'];
         echo " you logged-in welcome!!!</h1>";
