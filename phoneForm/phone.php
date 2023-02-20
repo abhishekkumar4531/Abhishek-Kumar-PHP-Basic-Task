@@ -44,7 +44,7 @@
       $img_tmp = $_FILES['user_img']['tmp_name'];
       $img_type = $_FILES['user_img']['type'];
 
-      move_uploaded_file($img_tmp, "uploaded/".$img_name);
+      move_uploaded_file($img_tmp, "../uploaded/".$img_name);
       echo "<div>";
       echo '<img src="uploaded/'.$img_name.'">';
       echo "<h3>". $_POST['fname'] ." ". $_POST['lname'] ."</h3>";

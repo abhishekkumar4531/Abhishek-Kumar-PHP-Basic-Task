@@ -42,7 +42,7 @@
 
       move_uploaded_file($img_tmp, "uploaded/".$img_name);
       echo "<div>";
-      echo '<img src="uploaded/'.$img_name.'">';
+      echo '<img src="../uploaded/'.$img_name.'">';
       echo "<h3>". $_POST['fname'] ." ". $_POST['lname'] ."</h3>";
       echo "</div>";
     }
