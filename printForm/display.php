@@ -95,13 +95,13 @@ session_start();
         echo $_POST['fname'];
         echo " you logged-in welcome!!!</h1>";
         echo "<div>";
-        echo '<img src="uploaded/'.$img_name.'">';
+        echo '<img src="..uploaded/'.$img_name.'">';
         echo "<h3>". $_POST['fname'] ." ". $_POST['lname'] ."</h3>";
         echo "<h3>Phone's number : ". $_POST['phone'] ."</h3>";
         echo "<h3>Verified-email : ". $user_email ."</h3>";
         echo "</div>";
 
-        $_SESSION['user_image'] = "uploaded/".$img_name;
+        $_SESSION['user_image'] = "../uploaded/".$img_name;
       }
 
       if(isset($_POST['sub_details'])){
