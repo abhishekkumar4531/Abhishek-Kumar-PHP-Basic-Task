@@ -33,26 +33,33 @@
 	<?php
 	global $status;
 	$status=false;
-	$user_profile = $_SESSION['login_user'];
-    if($user_profile==true){
+  if(isset($_SESSION['login_user'])){
       $status=true;
     }else{
 		$status=false;
 	}
-	if($_GET['q']==1){
-		header("location: validForm/task1.php");
-	}else if($_GET['q']==2){
-		header("location: imageForm/task2.php");
-	}else if($_GET['q']==3){
-		header("location: subjectForm/task3.php");
-	}else if($_GET['q']==4){
-		header("location: phoneForm/task4.php");
-	}else if($_GET['q']==5){
-		header("location: emailForm/task5.php");
-	}else if($_GET['q']==6){
-		header("location: printForm/task6.php");
-	}else if($_GET['q']==7){
-		header("location: index.php");
+	if(isset($_GET['q'])){
+		if($_GET['q']==1){
+      header("location: validForm/task1.php");
+    }
+    else if($_GET['q']==2){
+      header("location: imageForm/task2.php");
+    }
+    else if($_GET['q']==3){
+      header("location: subjectForm/task3.php");
+
+    }else if($_GET['q']==4){
+      header("location: phoneForm/task4.php");
+    }
+    else if($_GET['q']==5){
+      header("location: emailForm/task5.php");
+    }
+    else if($_GET['q']==6){
+      header("location: printForm/task6.php");
+    }
+    else if($_GET['q']==7){
+      header("location: index.php");
+    }
 	}
 	?>
 	<h1>These all are basic PHP task</h1>

@@ -26,6 +26,10 @@ session_start();
 
   <?php
   $validate = true;
+    global $status_name;
+    global $status_pwd;
+    global $getname;
+    global $getpwd;
     if($_SERVER["REQUEST_METHOD"]=="POST"){
       $getname = $_POST['username'];
       $getpwd = $_POST['userpwd'];
@@ -46,7 +50,7 @@ session_start();
       }
       $validate = false;
     }
-    if($validate && $_SESSION['login_user']==true){
+    if($validate && isset($_SESSION['login_user'])){
       header("location: index.php");
     }
   ?>
@@ -55,7 +59,7 @@ session_start();
 
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <label for="username">Enter User-Name</label><br>
-    <input type="text" name="username" placeholder="Enter : Abhi" value="<?php echo $getname ?>">
+    <input type="text" name="username" placeholder="Enter : Abhi" value="<?php echo $getname; ?>">
     <span>
       <?php
         if($status_name){
@@ -65,7 +69,7 @@ session_start();
     </span>
     <br><br>
     <label for="username">Enter User-Password</label><br>
-    <input type="text" name="userpwd" placeholder="Enter:abhi@45" value="<?php echo $getpwd ?>">
+    <input type="text" name="userpwd" placeholder="Enter:abhi@45" value="<?php echo $getpwd; ?>">
     <span>
       <?php
         if($status_pwd){
